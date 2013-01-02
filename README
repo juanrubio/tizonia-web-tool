@@ -2,6 +2,15 @@
  Tizonia Web Generator Tool
 ============================
 
+
+Acknowledgements
+================
+
+This tool is based on TortoiseHg's website generation tool. The original
+'thg-web' repository can be found on Bitbucket:
+http://bitbucket.org/kuy/thg-web/
+
+
 Requirements
 ============
 
@@ -70,7 +79,7 @@ feature will be helpful to avoid translation conficts in case that more than
 two translators contribute for one language.
 
 Submitted translations will be pushed automatically to the correspinding
-repository on Bitbucket by Transifex.  After that, maintainers re-generate
+repository on GitHub by Transifex.  After that, maintainers re-generate
 static website files for each language and upload them to hosting space.
 
 Test Translation on Local
@@ -80,7 +89,7 @@ Probably, you want to test translated messages for the website before
 submitting it to Transifex.  If so, please setup above environment first
 and try this instructions:
 
-1. Clone the-web repository to local from Bitbucket
+1. Clone the 'tizonia-web-tool' repository to local from Bitbucket
 2. Open command prompt and go to cloned repository root
 3. Overwrite locale/<lang>/LC_MESSAGES/django.po file with your PO file
 4. Run ``python web.py generate -l <lang>`` from command prompt
@@ -94,8 +103,9 @@ PO file forcibly.  We recommend you to backup PO file before testing.
 For Maintainers
 ---------------
 
-First of all, you need to clone 'thg-web' repository from Bitbucket:
-http://bitbucket.org/kuy/thg-web/
+First of all, you need to clone the 'tizonia-web-tool' repository from GitHub:
+https://github.com/juanrubio/tizonia-web-tool
+
 
 Update
 ^^^^^^
@@ -103,10 +113,10 @@ Update
 1. Update Django templates or static files in working copy
 2. Run ``python web.py update --all``
 3. Commit your changes with updated PO files
-4. Push them to 'thg-web' or send patches to maintainers
+4. Push them to 'tizonia-web-tool' or send patches to maintainers
 
 Next, you may need to generate website files and upload them to hosting
-repository on Bitbucket.
+repository on GitHub.
 
 1. Run ``python web.py generate --all`` to generate all websites
 2. Confirm generated html files with the browser
