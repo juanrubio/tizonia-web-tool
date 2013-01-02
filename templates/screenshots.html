@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block title %}Tizonia &gt; {% trans "Screenshots" %}{% endblock %}
+
+{% block content %}
+<div class="block screenshots">
+    <h2>{% trans "Screenshots" %}</h2>
+
+    <h3 id="tizonia01">{% trans "Tizonia OpenMAX IL 1.2" %}</h3>
+    <p><img src="img/tizonia01.png" alt="{% trans "Tizonia OpenMAX IL 1.2" %}" /></p>
+
+    <h3 id="tizonia02">{% trans "Tizonia OpenMAX IL 1.2" %}</h3>
+    <p><img src="img/tizonia02.png" alt="{% trans "Tizonia OpenMAX IL 1.2" %}" /></p>
+
+    <h3 id="skema">{% trans "Tizonia test execution framework" %}</h3>
+    <p><img src="img/skema.png" alt="{% trans "Tizonia test execution framework" %}" /></p>
+
+</div>
+{% endblock %}

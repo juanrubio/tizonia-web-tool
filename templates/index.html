@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block extra %}
+<div class="wideWrapper">
+    <div class="block descWrapper">
+    </div>
+    <div class="block newsWrapper">
+    </div>
+    <div class="clear"></div>
+</div>
+{% endblock %}
+
+{% block content %}
+
+        <p>{% blocktrans %}<a href="about.html">Tizonia</a> is an experimental implementation of the <a href="http://www.khronos.org/news/press/khronos-group-releases-openmax-il-1.2-provisional-specification">OpenMAX IL 1.2 provisional specification</a> from <a href="http://www.khronos.org/">The Khronos Group</a>.{% endblocktrans %}</p>
+        <p>{% blocktrans %} The project currently includes a number of libraries written in C or C++, including an OpenMAX IL base component library, an implementation of the OpenMAX IL Core, and OS abstraction/utility library, a resource management framework and a number of OpenMAX IL components, like an MP3 decoder, a VP8 decoder, and audio and video renderers. {% endblocktrans %}</p>
+        <p>{% blocktrans %} There is also a test execution framework written in Python that can be used to create arbitrary multimedia graphs and use cases to exercise the Tizonia OpenMAX IL components. {% endblocktrans %}</p>
+
+    <h3>{% trans "News" %}</h3>
+        <ul>
+          <li>2013-01-01: {% trans "The Tizonia OpenMAX IL project launched. Git and Mercurial repos available on GitHub and Bitbucket." %}</li>
+        </ul>
+
+    <h3>{% trans "Platforms" %}</h3>
+    <ul>
+        <li>{% trans "Linux (i686 and x86_64)" %}</li>
+    </ul>
+
+{% endblock %}

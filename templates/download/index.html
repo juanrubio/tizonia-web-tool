@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block title %}Tizonia &gt; {% trans "Download" %}{% endblock %}
+
+{% block content %}
+    <h3>{% trans "Clone the repos" %}</h3>
+    <p>
+        {% trans "For now, the recommemded way to try Tizonia is to clone the repos." %}
+        {% blocktrans %}The repos are mirrored on <a href="https://github.com/tizonia/">Github</a> and <a href="https://bitbucket.org/tizonia/">Bitbucket</a>.{% endblocktrans %}
+    </p>
+
+    <h4>{% trans "Tizonia OpenMAX IL" %}</h4>
+
+    <p>
+      <pre class='brush: bash'>
+
+      # On Bitbucket, clone the Mercurial repo...
+      $ hg clone https://bitbucket.org/tizonia/tizonia-openmax-il
+
+      # On GitHub, clone the Git repo...
+      $ git clone git://github.com/tizonia/tizonia-openmax-il.git
+
+      </pre>
+    </p>
+
+    <h4>{% trans "Skema, Tizonia's test execution framework" %}</h4>
+
+    <p>
+      <pre class='brush: bash'>
+      # On Bitbucket, clone the Mercurial repo...
+      $ hg clone https://bitbucket.org/tizonia/skema
+
+      # On GitHub, clone the Git repo...
+      $ git clone git://github.com/tizonia/skema
+      </pre>
+    </p>
+
+{% include "download/linux_content.html" %}
+{% endblock %}
+
+{% block js %}
+<script type="text/javascript" src="{{ dir_offset }}js/shCore.js"></script>
+<script type="text/javascript" src="{{ dir_offset }}js/shBrushBash.js"></script>
+<script type="text/javascript">
+  SyntaxHighlighter.defaults['gutter'] = true;
+  SyntaxHighlighter.defaults['toolbar'] = false;
+  SyntaxHighlighter.all()
+</script>
+{% endblock %}

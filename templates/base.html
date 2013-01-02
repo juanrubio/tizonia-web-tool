@@ -1,0 +1,79 @@
+{% load i18n %}
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="{{ lang.code }}" lang="{{ lang.code }}">
+  <head>
+    <title>{% block title %}Tizonia OpenMAX IL{% endblock %}</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="keywords" content="OpenMAX IL,Khronos,multimedia,codecs,hardware acceleration,vp8,webm,mp3,decoder,open source" />
+    <meta name="description" content="Tizonia OpenMAX IL Official Website." />
+    <link rel="stylesheet" href="{{ dir_offset }}css/stylesheet.css" type="text/css" media="screen" charset="utf-8" />
+    <link rel="stylesheet" href="{{ dir_offset }}css/shCore.css" type="text/css" />
+    <link rel="stylesheet" href="{{ dir_offset }}css/shThemeMidnight.css" type="text/css" />
+    {% block css %}{% endblock %}
+    <link rel="shortcut icon" href="{{ dir_offset }}img/favicon.png" type="image/png" />
+  </head>
+  <body>
+
+    <!-- HEADER -->
+    <div id="header_wrap" class="outer">
+      <header class="inner">
+          <a id="forkme_banner" href="https://github.com/tizonia">View on GitHub</a>
+          <p id="language"><select>
+              <option value="{{ lang.code }}">{{ lang.label }}</option>
+              {% for code, label in lang.list %}
+              <option value="{{ code }}">{{ label }}</option>
+              {% endfor %}
+            </select>
+          </p>
+
+          <h1 id="project_title">Tizonia OpenMAX IL</h1>
+          <h2 id="project_tagline">An open source implementation of OpenMAX IL 1.2</h2>
+
+        </header>
+      </div>
+
+    <!-- 2nd HEADER -->
+
+    <div class="inner">
+       <div class="menu">
+        <ul>
+          <li><a href="{{ dir_offset }}index.html">{% trans "News" %}</a></li>
+          <li><a href="{{ dir_offset }}about.html">{% trans "About" %}</a></li>
+          <li><a href="{{ dir_offset }}download/index.html">{% trans "Download" %}</a></li>
+          <li><a href="{{ dir_offset }}docs.html">{% trans "Documentation" %}</a></li>
+          <li><a href="https://github.com/tizonia/tizonia-openmax-il/wiki">{% trans "Wiki" %}</a></li>
+        </ul>
+       </div>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+      <section id="main_content" class="inner">
+        {% block content %}{% endblock %}
+      </section>
+    </div>
+
+    <!-- FOOTER  -->
+    <div class="outer">
+      <footer class="inner">
+        <p>{% blocktrans %}Copyright &copy; {{ year }} <a href="http://www.aratelia.com">Aratelia Limited</a> - <a href="http://www.juanrubio.me">Juan A. Rubio</a>{% endblocktrans %}</p>
+      </footer>
+    </div>
+
+    <script type="text/javascript" src="{{ dir_offset }}js/jquery.js"></script>
+    <script type="text/javascript" src="{{ dir_offset }}js/common.js"></script>
+    {% block js %}{% endblock %}
+    <script type="text/javascript">
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-21817639-6']);
+      _gaq.push(['_trackPageview']);
+
+      (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+    </script>
+  </body>
+</html>

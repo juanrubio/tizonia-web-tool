@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block title %}Tizonia &gt; {% trans "Install from sources" %}{% endblock %}
+
+{% block content %}
+{% include "download/install_content.html" %}
+{% endblock %}
+
+{% block js %}
+<script type="text/javascript" src="{{ dir_offset }}js/shCore.js"></script>
+<script type="text/javascript" src="{{ dir_offset }}js/shBrushBash.js"></script>
+<script type="text/javascript">
+  SyntaxHighlighter.defaults['gutter'] = true;
+  SyntaxHighlighter.defaults['toolbar'] = false;
+  SyntaxHighlighter.all()
+</script>
+{% endblock %}

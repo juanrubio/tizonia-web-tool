@@ -1,0 +1,36 @@
+{% load i18n %}
+var info = {
+    x64: {keywords: ['win64', 'wow64'],
+          desc: '{% trans "2.6.1 for Windows 64-bit with Mercurial 2.4.1" %}',
+          url: '{{ dl.x64 }}'},
+    linux2: {keywords: ['linux', 'sunos', 'hp-ux'],
+             desc: '{% trans "2.6.1 for Linux" %}',
+             url: '{{ dl.linux2 }}'},
+    darwin: {keywords: ['mac'],
+             desc: '{% trans "2.6.1 for Mac OS X" %}',
+             url: '{{ dl.darwin }}'}}
+
+var pf = window.navigator.platform.toLowerCase();
+var ua = window.navigator.userAgent.toLowerCase();
+for (var name in info) {
+    var data = info[name];
+    var match = false;
+    for (var j in data.keywords) {
+        var kw = data.keywords[j];
+        if (pf.indexOf(kw) != -1 || ua.indexOf(kw) != -1) {
+            match = true;
+            break;
+        }
+    }
+    if (match) {
+        $('.dlButton > span').text(data.desc);
+        $('.dlButton').attr('href', data.url);
+        if (name == 'x64') {
+            $('#altLink').text('{% trans "32-bit" %}')
+                         .attr('href', '{{ dl.x86 }}');
+        } else if (name == 'linux2' || name == 'darwin') {
+            $('#altLink').hide();
+        }
+        break;
+    }
+}
