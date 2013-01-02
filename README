@@ -1,6 +1,6 @@
-====================
- Tizonia Website 
-====================
+============================
+ Tizonia Web Generator Tool
+============================
 
 Requirements
 ============
@@ -45,7 +45,7 @@ For Translators
 ---------------
 
 We are using Transifex as translation platform for Tizonia website:
-https://www.transifex.net/projects/p/tortoisehg/c/web/
+https://www.transifex.net/projects/p/tizonia/c/web/
 
 To translate the website, please follow this instructions.
 
@@ -53,7 +53,7 @@ Translate
 ^^^^^^^^^
 
 1. Go to Tizonia project page on Transifex:
-   https://www.transifex.net/projects/p/tortoisehg/c/web/
+   https://www.transifex.net/projects/p/tizonia/c/web/
 2. Select your language
 3. Translate it
 4. Submit translation
