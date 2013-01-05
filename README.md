@@ -1,7 +1,9 @@
-============================
- Tizonia Web Generator Tool
-============================
+==================================
+ Tizonia Static Website Generator
+==================================
 
+This tool generates the static website of the 
+[Tizonia OpenMAXIL](http://tizonia.org "Tizonia OpenMAX IL") project.
 
 Acknowledgements
 ================

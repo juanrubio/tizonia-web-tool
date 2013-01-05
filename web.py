@@ -24,7 +24,6 @@ Commands:
 FILES = ('index.html',
          'about.html',
          'docs.html',
-         'js/download.js',
          'download/index.html',
          'download/install_content.html',
          'download/install.html',
