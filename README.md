@@ -3,7 +3,7 @@
 ==================================
 
 This tool generates the static website of the 
-[Tizonia OpenMAXIL](http://tizonia.org "Tizonia OpenMAX IL") project.
+[Tizonia OpenMAX IL](http://tizonia.org "Tizonia OpenMAX IL") project.
 
 Acknowledgements
 ================
