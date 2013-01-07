@@ -1,10 +1,15 @@
 {% load i18n %}
 
 <div class="block">
-    <h3 id="linux">{% trans "Linux" %}</h3>
-
-    <h4 id="sources">{% trans "Intallation from sources" %}</h4>
+    <h3 id="linux">{% trans "Manual procedure" %}</h3>
     <p>
-        <a href="install.html">{% trans "How to build, install and run." %}</a>
+        {% trans "Alternatively, you can install things manually. " %}
+    </p>
+
+    <p>
+        {% trans "For an overview of the manual installation process, check out the following:" %}
+    </p>
+    <p>
+        <a href="install.html">{% trans "How to manually download, build, install and run." %}</a>
     </p>
 </div>

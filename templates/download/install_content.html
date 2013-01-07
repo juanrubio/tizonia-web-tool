@@ -1,28 +1,73 @@
 {% load i18n %}
 
+    <h3>{% trans "Clone the repos" %}</h3>
+
+    <h4>{% trans "Tizonia OpenMAX IL" %}</h4>
+    <p>
+      Clone the <code>Tizonia OpenMAX IL</code> repo. You can choose to do it
+      from GitHub or Bitbucket.
+    </p>
+
+    <p>
+      <pre class='brush: bash'>
+      # On Bitbucket, clone the Mercurial repo...
+      $ hg clone https://bitbucket.org/tizonia/tizonia-openmax-il
+
+      # On GitHub, clone the Git repo...
+      $ git clone https://github.com/tizonia/tizonia-openmax-il.git
+      </pre>
+    </p>
+
+    <h4>{% trans "Skema, Tizonia's test execution framework" %}</h4>
+    <p>
+      Clone the <code>skema</code> test execution framework. Again, you can
+      choose to do it from GitHub or Bitbucket.
+    </p>
+
+    <p>
+      <pre class='brush: bash'>
+      # On Bitbucket, clone the Mercurial repo...
+      $ hg clone https://bitbucket.org/tizonia/skema
+
+      # On GitHub, clone the Git repo...
+      $ git clone https://github.com/tizonia/skema.git
+      </pre>
+    </p>
+
+    <h3 id="tests">{% trans "Download the test media files" %}</h3>
+    <p>
+      The unit tests use a number of Creative Commons licensed media files that
+      you can download using the following command:
+    </p>
+    <p>
+      <pre class='brush: bash'>
+      $ wget http://www.juanrubio.me/wp-content/uploads/2012/05/tizonia_test_media.tgz
+      </pre>
+    </p>
+
     <h3 id="deps">{% trans "Install the dependencies" %}</h3>
     <p>
-      Use the following command to install the dependencies all at once
-      (this assumes you are on a Debian-based Linux system):
+      Use the following command to install the dependencies
+      (this assumes a Debian-based Linux system):
     </p>
     <p>
       <pre class='brush: bash'>
       # Open a shell and execute the following...
-      $ sudo apt-get install autoconf automake autotools-dev build-essential check cscope doxygen indent libmad0 libmad0-dev libtool liblog4c-dev liblog4c-doc liblog4c3 libasound2 libasound2-dev libav-tools libdbus-1-dev libdbus-c++-1-0 libdbus-c++-dev libsqlite3-dev libboost-doc libboost-all-dev python-sphinx sqlite3 uuid uuid-dev libavutil-dev libavformat-dev libavcodec-dev libswscale-dev libsdl1.2debian libsdl1.2-dev libvpx-dev
+      $ sudo apt-get install autoconf automake autotools-dev build-essential check cscope doxygen indent wget libtool liblog4c-dev liblog4c-doc liblog4c3 libasound2 libasound2-dev libdbus-1-dev libdbus-c++-1-0 libdbus-c++-dev libsqlite3-dev libboost-all-dev python-sphinx sqlite3 uuid uuid-dev libsdl1.2debian libsdl1.2-dev libmad0 libmad0-dev  libvpx-dev
       </pre>
     </p>
 
 
     <h3 id="build">{% trans "Build and install the software" %}</h3>
     <p>
-      Install the Tizonia libraries somewhere in your system, for instance,
-      type the following to install the Tizonia libraries under <code>$HOME/temp</code>:
+      Install the Tizonia libraries somewhere in your system E.g., type the
+      following to install the libraries and data under <code>$HOME/temp/tizonia</code>:
     </p>
-   
+
     <pre class='brush: bash'>
       # e.g., for a a 'debug-type' of build, type the following commands...
       $ mkdir ~/temp
-      $ autoreconf -ifs ; ./configure --enable-silent-rules --prefix=/home/$USER/temp CFLAGS="-ggdb -Wall -Werror"
+      $ autoreconf -ifs ; ./configure --enable-silent-rules --prefix=/home/$USER/temp/tizonia CFLAGS="-ggdb -Wall -Werror"
       $ make -s j4 V=0
       $ make install
     </pre>
@@ -36,10 +81,13 @@
 
     <h4 id="service">{% trans "Tizonia's RM D-Bus service file (mandatory)" %}</h4>
     <p>
+      Copy Tizonia RM D-Bus service file to one of the D-Bus search folders in
+      your system.
+    </p>
+
+    <p>
       <pre class='brush: bash'>
-      # Copy Tizonia RM D-Bus service file to one of the D-Bus search
-      # folders in your system,
-      # e.g.: the $HOME/.local/share/dbus-1/services directory
+      # e.g.: Copy the service file to $HOME/.local/share/dbus-1/services
       $ mkdir -p ~/.local/share/dbus-1/services
       $ cp ~/temp/share/dbus-1/services/com.aratelia.tiz.rm.service ~/.local/share/dbus-1/services
       </pre>
@@ -47,8 +95,10 @@
 
     <h4 id="tizrc">{% trans "Tizonia rc file (mandatory)" %}</h4>
     <p>
+      Copy Tizonia's rc file to your <code>$HOME</code>, e.g.
+    </p>
+    <p>
       <pre class='brush: bash'>
-      # Copy Tizonia's rc file to your $HOME, e.g.
       $ cp 'path_to_tizonia_repo'/libtizosal/src/tizrc ~/.tizrc
       </pre>
     </p>
@@ -59,20 +109,21 @@
     </p>
     <p>
       <pre class='brush: bash'>
-      $ sed -i "s/joni/$USER/g" ~/.tizrc
+      $ sed -i "s/user/$USER/g" ~/.tizrc
       </pre>
     </p>
     <p>
       At this stage, it is a good idea to verify that all the paths described
       in the Tizonia rc file point to the correct locations in your system
       (this should not be necessary if you followed all the above steps without
-      change).
+      modifications).
     </p>
 
     <h4 id="log_file">{% trans "Copy or update the log4c rc file (optional)" %}</h4>
     <p>
-      Tizonia uses the log4c logging library to output debug information. If
-      you want to use this facility, just create/update the log4crc file in your <code>$HOME</code>
+      Tizonia uses the <a href="http://log4c.sourceforge.net/">log4c</a>
+      logging library to output debug information. If you want to use this
+      facility, just create/update the log4crc file in your <code>$HOME</code>
       directory. E.g:
     </p>
     <p>
@@ -81,7 +132,7 @@
       </pre>
     </p>
     <p>
-      You can customize this file to your needs.
+      And customize this file to your needs.
     </p>
 
     <h3 id="tests">{% trans "Run the unit tests" %}</h3>
@@ -90,7 +141,7 @@
     </p>
     <p>
       <pre class='brush: bash'>
-      # Go to the Tizonia repo and type:
+      # 'cd' into the Tizonia repo and type:
       $ make check
       </pre>
     </p>

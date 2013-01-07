@@ -4,33 +4,52 @@
 {% block title %}Tizonia &gt; {% trans "Download" %}{% endblock %}
 
 {% block content %}
-    <h3>{% trans "Clone the repos" %}</h3>
+    <h3>{% trans "Tizonia Download Tool" %}</h3>
     <p>
-        {% trans "For now, the recommemded way to try Tizonia is to clone the repos." %}
+        {% blocktrans %}For now, the recommemded way to try <a href="https://github.com/tizonia/tizonia-openmax-il">Tizonia</a> is to clone the repos and build everything from source.{% endblocktrans %}
         {% blocktrans %}The repos are mirrored on <a href="https://github.com/tizonia/">Github</a> and <a href="https://bitbucket.org/tizonia/">Bitbucket</a>.{% endblocktrans %}
     </p>
 
-    <h4>{% trans "Tizonia OpenMAX IL" %}</h4>
+    <p>
+        {% blocktrans %}However, the <a href="http://tizonia.org/download/install.html">manual installation</a> is tedious. Instead, you can use <a href="https://github.com/tizonia/tizonia-download-tool">Tizonia's download tool</a>, which will do everything for you, including downloading the Creative Commons-licensed media files that are used throughout the <a href="https://github.com/tizonia/tizonia-openmax-il">Tizonia</a> unit tests and <a href="https://github.com/tizonia/skema">Skema</a>'s test suites.{% endblocktrans %}
+    </p>
 
+    <h4>{% trans "Clone the 'Tizonia Download Tool' repo" %}</h4>
     <p>
       <pre class='brush: bash'>
-      # On Bitbucket, clone the Mercurial repo...
-      $ hg clone https://bitbucket.org/tizonia/tizonia-openmax-il
-
-      # On GitHub, clone the Git repo...
-      $ git clone git://github.com/tizonia/tizonia-openmax-il.git
+      # From GitHub, clone the following repo...
+      $ git clone https://github.com/tizonia/tizonia-download-tool.git
       </pre>
     </p>
 
-    <h4>{% trans "Skema, Tizonia's test execution framework" %}</h4>
-
+    <h4>{% trans "Run the tool" %}</h4>
     <p>
       <pre class='brush: bash'>
-      # On Bitbucket, clone the Mercurial repo...
-      $ hg clone https://bitbucket.org/tizonia/skema
+      # Change dir to the 'bin' directory
+      $ cd tizonia-download-tool/bin
+      #
+      # Run the tool without options for bring up the help
+      #
+      $ ./tizonia-download-tool
+      Need to specify a target directory for non-interactive runs.
+      Usage: tizonia-download-tool [options]
 
-      # On GitHub, clone the Git repo...
-      $ git clone git://github.com/tizonia/skema.git
+      Options:
+        --version             show program's version number and exit
+        -h, --help            show this help message and exit
+        -i, --interactive     use this option to enable an interactive run
+        -t TARGET_DIR, --target-dir=TARGET_DIR
+                              TARGET_DIR represents the base directory that will be
+                              used by the tool to: a) download the repos and test
+                              files, b) install the software (i.e., the lib/
+                              include/ share/ and bin/ subdirs). This option is
+                              required when --interactive or -i option is not
+                              specified
+      #
+      # e.g. execute the tool like this
+      #
+      $ ./tizonia-download-tool -i -t $HOME/temp/tizonia
+      #
       </pre>
     </p>
 

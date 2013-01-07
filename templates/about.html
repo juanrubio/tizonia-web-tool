@@ -7,19 +7,12 @@
 
     <h3>{% trans "About Tizonia OpenMAX IL" %}</h3>
     <p>{% blocktrans %}Tizonia OpenMAX IL is an experimental implementation for Linux of the <a href="http://www.khronos.org/news/press/khronos-group-releases-openmax-il-1.2-provisional-specification">OpenMAX IL 1.2 provisional specification</a> from <a href="http://www.khronos.org/">The Khronos Group</a>.{% endblocktrans %}</p>
-    <p>{% blocktrans %}Tizonia OpenMAX IL consists of a number of resources:{% endblocktrans %}</p>
-    <ul>
-      <li>A fairly complete implementation of a base OpenMAX IL component library (written in C)</li>
-      <li>An IL Core implementation (written in C)</li>
-      <li>An OS abstraction and utility library (written in C), including POSIX threading and synchronization primitives, FIFO and priority queues, dynamic array, config file parsing, uuids, small object allocation, etc</li>
-      <li>A Resource Management (RM) framework, including a C client library, and D-Bus-based RM server (written in C++)</li>
-      <li>A number of sample IL components, including an mp3 decoder (based on libmad), a vp8 decoder (based on libvpx), a SDL-based YUV renderer, etc.</li>
-    </ul>
+    <p>{% blocktrans %} The project currently includes a number of libraries written in C or C++, including an OpenMAX IL base component library, an implementation of the OpenMAX IL Core, and OS abstraction/utility library, a resource management framework and a number of OpenMAX IL components, like an MP3 decoder, a VP8 decoder, and audio and video renderers. {% endblocktrans %}</p>
     <p>{% blocktrans %}Tizonia OpenMAX IL is released under the <a href="http://www.gnu.org/licenses/lgpl-3.0.txt">GNU Lesser General Public License version 3</a> license.{% endblocktrans %}</p>
 
 
     <h3>{% trans "About Skema, Tizonia's test execution framework" %}</h3>
-    <p>{% blocktrans %}Skema is a <a href="http://www.python.org/">Python</a> test tool that allows the definition and execution of arbitrary OpenMAX IL graphs and use cases using an easy-to-program XML syntax. Skema internally uses <a href="http://docs.python.org/2/library/ctypes.html">Python's ctypes</a> to programatically load and use the OpenMAX IL Core. Skema can be easily extended to support new functionality and test scenarios by defining new XML tags also written in Python. {% endblocktrans %}</p>
+    <p>{% blocktrans %}Skema is a test execution framework written in Python that can be used to create arbitrary multimedia graphs and use cases to exercise the Tizonia OpenMAX IL components. {% endblocktrans %}</p>
     <p>{% blocktrans %}Skema borrows ideas and some of its code from Linaro's excellent <a href="http://lava-test.readthedocs.org/en/latest/">Lava-test</a> framework. {% endblocktrans %}</p>
     <p>{% blocktrans %}Skema is released under the <a href="http://www.gnu.org/licenses/gpl-3.0.txt">GNU General Public License version 3</a> license.{% endblocktrans %}</p>
 

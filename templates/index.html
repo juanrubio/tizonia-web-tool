@@ -13,9 +13,22 @@
 
 {% block content %}
 
-        <p>{% blocktrans %}<a href="about.html">Tizonia</a> is an experimental implementation of the <a href="http://www.khronos.org/news/press/khronos-group-releases-openmax-il-1.2-provisional-specification">OpenMAX IL 1.2 provisional specification</a> from <a href="http://www.khronos.org/">The Khronos Group</a>.{% endblocktrans %}</p>
-        <p>{% blocktrans %} The project currently includes a number of libraries written in C or C++, including an OpenMAX IL base component library, an implementation of the OpenMAX IL Core, and OS abstraction/utility library, a resource management framework and a number of OpenMAX IL components, like an MP3 decoder, a VP8 decoder, and audio and video renderers. {% endblocktrans %}</p>
-        <p>{% blocktrans %} There is also a test execution framework written in Python that can be used to create arbitrary multimedia graphs and use cases to exercise the Tizonia OpenMAX IL components. {% endblocktrans %}</p>
+<p>{% blocktrans %}<a href="about.html">Tizonia</a> is an experimental implementation of the <a href="http://www.khronos.org/news/press/khronos-group-releases-openmax-il-1.2-provisional-specification">OpenMAX IL 1.2 provisional specification</a> from <a href="http://www.khronos.org/">The Khronos Group</a>.{% endblocktrans %}</p>
+<p>{% blocktrans %}<strong>Tizonia OpenMAX IL</strong> consists of a number of resources:{% endblocktrans %}</p>
+<p>
+  <ul>
+    <li>A fairly complete implementation of a base OpenMAX IL component library (supports Base and Interop profiles)</li>
+    <li>An IL Core implementation.</li>
+    <li>An OS abstraction/utility library, including wrappers for memory, threading and synchronization primitives, FIFO and priority queues, dynamic arrays, config file parsing, uuids, small object allocation, etc</li>
+    <li>A Resource Management (RM) framework, including a C client library, and a D-Bus-based RM server written in C++.</li>
+    <li>A number of sample IL components, including an mp3 decoder (based on libmad), a vp8 decoder (based on libvpx), a SDL-based YUV renderer, etc.</li>
+  </ul>
+</p>
+<p>{% blocktrans %}There is also a a test execution framework written in <a href="http://www.python.org/">Python</a> called <strong><em>Skema</em></strong>, that allows the definition and execution of arbitrary OpenMAX IL graphs and use cases using an easy-to-program XML syntax. Skema internally uses <a href="http://docs.python.org/2/library/ctypes.html">Python's ctypes</a> to dynamically load and use the OpenMAX IL Core. Skema can be easily extended to support new functionality and test scenarios by defining additional XML tags also written in Python.{% endblocktrans %}
+</p>
+
+<p></p>
+
 
     <h3>{% trans "News" %}</h3>
         <ul>
