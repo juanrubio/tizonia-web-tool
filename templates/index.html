@@ -15,16 +15,15 @@
 
 <p>{% blocktrans %}<a href="about.html">Tizonia</a> is an experimental implementation of the <a href="http://www.khronos.org/news/press/khronos-group-releases-openmax-il-1.2-provisional-specification">OpenMAX IL 1.2 provisional specification</a> from <a href="http://www.khronos.org/">The Khronos Group</a>.{% endblocktrans %}</p>
 <p>{% blocktrans %}<a href="https://github.com/tizonia/tizonia-openmax-il/wiki">Tizonia OpenMAX IL</a> consists of a number of resources:{% endblocktrans %}</p>
-<p>
-  <ul>
-    <li>A fairly complete implementation of a base OpenMAX IL component library (supports Base and Interop profiles)</li>
-    <li>An IL Core implementation.</li>
-    <li>An OS abstraction/utility library, including wrappers for memory, threading and synchronization primitives, FIFO and priority queues, dynamic arrays, config file parsing, uuids, small object allocation, etc</li>
-    <li>A Resource Management (RM) framework, including a C client library, and a D-Bus-based RM server written in C++.</li>
-    <li>A number of sample IL components, including an mp3 decoder (based on libmad), a vp8 decoder (based on libvpx), a SDL-based YUV renderer, etc.</li>
-  </ul>
-</p>
-<p>{% blocktrans %}There is also a a test execution framework written in Python called <a href="https://github.com/tizonia/tizonia-openmax-il/wiki/Skema">Skema</a>, that allows the definition and execution of arbitrary OpenMAX IL graphs and use cases using an easy-to-program XML syntax. Skema internally uses <a href="http://docs.python.org/2/library/ctypes.html">Python's ctypes</a> to dynamically load and use the OpenMAX IL Core. Skema can be easily extended to support new functionality and test scenarios by defining additional XML tags also written in Python.{% endblocktrans %}
+<ul>
+  <li>An almost complete implementation of an OpenMAX IL 1.2 base component library (with support for both Base and Interop profiles)</li>
+  <li>An OpenMAX IL 1.2 Core implementation.</li>
+  <li>An OS abstraction/utility library, with wrappers and utilities for Memory allocation, threading and synchronization primitives, FIFO and priority queues, dynamic arrays, associative arrays, small object allocation, HTTP parsing, uuid generation, config file parsing, evented I/O (via libev), etc... </li>
+  <li> A Resource Management (RM) framework, including a C client library and a D-Bus-based RM server written in C++.</li>
+  <li> A growing number of sample OpenMAX IL plugins, including mp3 decoder (based on libmad), mp3 encoder (based on LAME), PCM renderer (based on ALSA lib), VP8 decoder (based on libvpx), SDL-based YUV renderer, binary file readers and writers, etc, </li>
+</ul>
+
+<p>{% blocktrans %}Additionally, the project also includes a test execution framework written in Python called <a href="https://github.com/tizonia/tizonia-openmax-il/wiki/Skema">Skema</a>, that allows the definition and execution of arbitrary OpenMAX IL graphs and test scenarios using an easy-to-program XML syntax. Skema internally uses <a href="http://docs.python.org/2/library/ctypes.html">Python's ctypes</a> to dynamically load and use the OpenMAX IL Core and it can be easily extended to support additional Base and Interop profile test cases, all from the convenience of the Python programming language.{% endblocktrans %}
 </p>
 
 <p></p>
@@ -32,6 +31,7 @@
 
     <h3>{% trans "News" %}</h3>
         <ul>
+          <li>2013-04-10: {% trans "Continuous integration is now available. Visit <a href=\"https://travis-ci.org/tizonia/tizonia-openmax-il/\">https://travis-ci.org/tizonia/tizonia-openmax-il</a>." %}</li>
           <li>2013-01-01: {% trans "The Tizonia OpenMAX IL project launched. Git and Mercurial repos available on GitHub and Bitbucket." %}</li>
         </ul>
 
