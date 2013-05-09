@@ -34,17 +34,6 @@
       </pre>
     </p>
 
-    <h3 id="tests">{% trans "Download the test media files" %}</h3>
-    <p>
-      The unit tests use a number of Creative Commons licensed media files that
-      you can download using the following command:
-    </p>
-    <p>
-      <pre class='brush: bash'>
-      $ wget http://www.juanrubio.me/tizonia/tizonia-test-media.tgz
-      </pre>
-    </p>
-
     <h3 id="deps">{% trans "Install the dependencies" %}</h3>
     <p>
       Use the following command to install the dependencies
@@ -53,7 +42,7 @@
     <p>
       <pre class='brush: bash'>
       # Open a shell and execute the following...
-      $ sudo apt-get install autoconf automake autotools-dev build-essential check cscope doxygen indent wget libtool liblog4c-dev liblog4c-doc liblog4c3 libasound2 libasound2-dev libdbus-1-dev libdbus-c++-1-0 libdbus-c++-dev libsqlite3-dev libboost-all-dev python-sphinx sqlite3 uuid uuid-dev libsdl1.2debian libsdl1.2-dev libmad0 libmad0-dev  libvpx-dev
+      $ sudo apt-get install autoconf automake autotools-dev build-essential libtool check cscope doxygen indent wget libmad0 libmad0-dev liblog4c3 liblog4c-dev libasound2 libasound2-dev libdbus-1-dev libdbus-c++-1-0 libdbus-c++-dev libsqlite3-0 libsqlite3-dev libboost-all-dev uuid uuid-dev libsdl1.2debian libsdl1.2-dev libvpx-dev libavcodec-dev libavformat-dev libavdevice-dev libmp3lame-dev libev-dev python-sphinx curl
       </pre>
     </p>
 
@@ -61,19 +50,32 @@
     <h3 id="build">{% trans "Build and install the software" %}</h3>
     <p>
       Install the Tizonia libraries somewhere in your system E.g., type the
-      following to install the libraries and data under <code>$HOME/temp/tizonia</code>:
+      following to install the libraries and data under <code>$HOME/tizonia</code>:
     </p>
 
     <pre class='brush: bash'>
       # e.g., for a a 'debug-type' of build, type the following commands...
       $ mkdir ~/temp
-      $ autoreconf -ifs ; ./configure --enable-silent-rules --prefix=/home/$USER/temp/tizonia CFLAGS="-ggdb -Wall -Werror"
+      $ autoreconf -ifs ; ./configure --enable-silent-rules --prefix=$HOME/tizonia CFLAGS="-ggdb -Wall -Werror"
       $ make -s j4 V=0
       $ make install
     </pre>
 
-    <h3 id="config">{% trans "Get the config files ready" %}</h3>
+    <h3 id="tests">{% trans "Download the test media files" %}</h3>
+    <p>
+      The unit tests use a number of Creative Commons-licensed media files that
+      you can download using the following command:
+    </p>
+    <p>
+      <pre class='brush: bash'>
+      $ cd $HOME/tizonia
+      $ mkdir -p var/tizonia/lib
+      $ wget http://www.juanrubio.me/tizonia/tizonia-test-media.tgz
+      $ tar zxvf tizonia-test-media.tgz
+      </pre>
+    </p>
 
+    <h3 id="config">{% trans "Get the config files ready" %}</h3>
     <p>
       A number of configuration files need to be in place before Tizonia
       OpenMAX IL is ready to be used.
@@ -93,30 +95,21 @@
       </pre>
     </p>
 
-    <h4 id="tizrc">{% trans "Tizonia rc file (mandatory)" %}</h4>
+    <h4 id="tizonia.conf">{% trans "Tizonia configuration file (mandatory)" %}</h4>
     <p>
-      Copy Tizonia's rc file to your <code>$HOME</code>, e.g.
+      Copy Tizonia's config file to your <code>$HOME</code>, e.g.
     </p>
     <p>
       <pre class='brush: bash'>
-      $ cp 'path_to_tizonia_repo'/libtizosal/src/tizrc ~/.tizrc
+      $ cp 'path_to_tizonia_repo'/config/tizonia.conf ~/.tizonia.conf
       </pre>
     </p>
 
     <p>
-      Edit the <code>$HOME/.tizrc</code> file and replace all instances of <code>user</code> with your
-      user name:
-    </p>
-    <p>
-      <pre class='brush: bash'>
-      $ sed -i "s/user/$USER/g" ~/.tizrc
-      </pre>
-    </p>
-    <p>
-      At this stage, it is a good idea to verify that all the paths described
-      in the Tizonia rc file point to the correct locations in your system
-      (this should not be necessary if you followed all the above steps without
-      modifications).
+      At this stage, it is a good idea to verify that all the paths mentioned
+      in the <code>~/.tizonia.conf</code> file point to the right locations in
+      your system (this should not be necessary if you have followed all the
+      above steps literally).
     </p>
 
     <h4 id="log_file">{% trans "Copy or update the log4c rc file (optional)" %}</h4>
@@ -128,7 +121,7 @@
     </p>
     <p>
       <pre class='brush: bash'>
-      $ cp 'path_to_tizonia_repo'/libtizosal/src/log4crc ~/.log4crc
+      $ cp 'path_to_tizonia_repo'/config/log4crc ~/.log4crc
       </pre>
     </p>
     <p>
